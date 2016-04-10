@@ -1,5 +1,5 @@
 pdf_file_base=$1
-python_file=/Users/frank/209-pdf/convert.py
+python_file=$2 #../convert.py
 rm ~/Desktop/*.pdf
 mkdir output
 automator -v -i $pdf_file_base.pdf pdf2png.workflow
