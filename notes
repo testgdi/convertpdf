@@ -1,0 +1,12 @@
+There are 3 sections to the bills
+
+1. top part voucher 0
+2. computer checks
+3. voucher 201, 205, 216, 222, 229, 301, 302,
+4. Summary top bills
+5. breakout by different checks, payroll, employee function
+
+certainly we can get
+top bills easily in separate db
+
+others can be done separately
