@@ -1,6 +1,6 @@
 import sys
 fn = sys.argv[1]
-# fn="output/bill-20160308.txt"
+# fn="output/bills-20150811.txt"
 lines=[]
 
 for line in open(fn):
@@ -90,10 +90,12 @@ for line in lines:
 
     if probably_subtotal(line.split()[0]):
         sub = line.split()[1]
+        if sub == "'":
+            sub = line.split()[2]
         if sub[0] == 0:
             sub[0] = 8
         ## if first character is a 0, then it proabably should be 8.
-        sub = float(sub.replace('$','').replace(',','').replace('.',''))
+        sub = float(sub.replace('$','').replace(',','').replace('.','').replace("C","0").replace("_",""))
         sub /= 100.0
         next_line_is_start=True
         subtotal_list.append( Rec( start, add_list, exp_list, sub))

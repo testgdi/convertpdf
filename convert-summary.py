@@ -8,6 +8,7 @@ if len( sys.argv) != 3:
     
 fn = sys.argv[1]
 # fn="summary-20160412-ouk.txt"
+# fn="summary-20151208.txt"
 
 lines=[]
 f=open(fn)
@@ -18,11 +19,11 @@ top1= sys.argv[2] # "P.A.E.C."
 
 start=False
 for line in f:
-    if line.strip().count( top1) < 1:
+    if line.strip() == '':
+        continue
+    if start or line.strip().count( top1) >0:
         start = True
     if not start:
-        continue
-    if line.strip() == '':
         continue
     lines.append( line.strip())
 
@@ -35,7 +36,8 @@ for line in clean_lines:
     while line.count('') > 0:
         line.remove('')
     table_lines.append( line)
-    
+
+
 vendor_name=[x[0].strip() for x in table_lines]
 description=[x[1].strip() for x in table_lines]
 amount=[x[2].strip() for x in table_lines]
